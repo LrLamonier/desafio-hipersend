@@ -1,0 +1,11 @@
+{
+  "name": "hipersend",
+  "version": "1.0.0",
+  "description": "Desafio HIPERSEND",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Lamonier",
+  "license": "ISC"
+}
