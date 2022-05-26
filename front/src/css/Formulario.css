@@ -8,3 +8,9 @@
   align-items: center;
   gap: 1rem;
 }
+
+.semana-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}

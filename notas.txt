@@ -1,0 +1,1 @@
+O campo "fim" da jornada tem como valor mínimo o horário de início
