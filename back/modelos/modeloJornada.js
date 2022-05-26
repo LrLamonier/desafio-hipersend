@@ -13,10 +13,10 @@ const schemaJornada = new mongoose.Schema({
       type: Boolean,
     },
     inicio: {
-      type: Date,
+      type: String,
     },
     fim: {
-      type: Date,
+      type: String,
     },
   },
   seg: {
@@ -24,10 +24,10 @@ const schemaJornada = new mongoose.Schema({
       type: Boolean,
     },
     inicio: {
-      type: Date,
+      type: String,
     },
     fim: {
-      type: Date,
+      type: String,
     },
   },
   ter: {
@@ -35,10 +35,10 @@ const schemaJornada = new mongoose.Schema({
       type: Boolean,
     },
     inicio: {
-      type: Date,
+      type: String,
     },
     fim: {
-      type: Date,
+      type: String,
     },
   },
   qua: {
@@ -46,10 +46,10 @@ const schemaJornada = new mongoose.Schema({
       type: Boolean,
     },
     inicio: {
-      type: Date,
+      type: String,
     },
     fim: {
-      type: Date,
+      type: String,
     },
   },
   qui: {
@@ -57,10 +57,10 @@ const schemaJornada = new mongoose.Schema({
       type: Boolean,
     },
     inicio: {
-      type: Date,
+      type: String,
     },
     fim: {
-      type: Date,
+      type: String,
     },
   },
   sex: {
@@ -68,10 +68,10 @@ const schemaJornada = new mongoose.Schema({
       type: Boolean,
     },
     inicio: {
-      type: Date,
+      type: String,
     },
     fim: {
-      type: Date,
+      type: String,
     },
   },
   sab: {
@@ -79,10 +79,10 @@ const schemaJornada = new mongoose.Schema({
       type: Boolean,
     },
     inicio: {
-      type: Date,
+      type: String,
     },
     fim: {
-      type: Date,
+      type: String,
     },
   },
 });

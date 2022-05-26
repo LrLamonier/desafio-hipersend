@@ -23,6 +23,6 @@ const enviarErroProd = (err, req, res) => {
 module.exports = (err, req, res, next) => {
   let erro = { ...err };
 
-  enviarErroDev(err, res);
+  // enviarErroDev(err, res);
   enviarErroProd(erro, req, res);
 };

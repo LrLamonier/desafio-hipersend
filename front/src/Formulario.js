@@ -7,6 +7,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import axios from "axios";
 
 function Formulario() {
   const [ativo, setAtivo] = useState(false);
@@ -156,48 +157,54 @@ function Formulario() {
   };
 
   // Função de submissão do formulário
-  const submissaoHandler = (e) => {
+  const submissaoHandler = async (e) => {
     e.preventDefault();
     const jornada = {
       jornadaAtiva: ativo,
       config: envio,
       dom: {
         atv: domAtv,
-        inicio: inicioDom,
-        fim: fimDom,
+        inicio: inicioDom ? inicioDom.toString() : null,
+        fim: fimDom ? fimDom.toString() : null,
       },
       seg: {
         atv: segAtv,
-        inicio: inicioSeg,
-        fim: fimSeg,
+        inicio: inicioSeg ? inicioSeg.toString() : null,
+        fim: fimSeg ? fimSeg.toString() : null,
       },
       ter: {
         atv: terAtv,
-        inicio: inicioTer,
-        fim: fimTer,
+        inicio: inicioTer ? inicioTer.toString() : null,
+        fim: fimTer ? fimTer.toString() : null,
       },
       qua: {
         atv: quaAtv,
-        inicio: inicioQua,
-        fim: fimQua,
+        inicio: inicioQua ? inicioQua.toString() : null,
+        fim: fimQua ? fimQua.toString() : null,
       },
       qui: {
         atv: quiAtv,
-        inicio: inicioQui,
-        fim: fimQui,
+        inicio: inicioQui ? inicioQui.toString() : null,
+        fim: fimQui ? fimQui.toString() : null,
       },
       sex: {
         atv: sexAtv,
-        inicio: inicioSex,
-        fim: fimSex,
+        inicio: inicioSex ? inicioSex.toString() : null,
+        fim: fimSex ? fimSex.toString() : null,
       },
       sab: {
         atv: sabAtv,
-        inicio: inicioSab,
-        fim: fimSab,
+        inicio: inicioSab ? inicioSab.toString() : null,
+        fim: fimSab ? fimSab.toString() : null,
       },
     };
-    console.log(jornada);
+
+    try {
+      const res = await axios.put("/s", jornada);
+      console.log(res.status);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
