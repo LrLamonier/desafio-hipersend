@@ -201,7 +201,7 @@ function Formulario() {
 
     try {
       const res = await axios.put("/s", jornada);
-      console.log(res.status);
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
