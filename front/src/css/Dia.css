@@ -1,6 +1,22 @@
+.btn-dia {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100px;
+  border: none;
+  background-color: #999999;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.ativo {
+  background-color: #2196f3;
+}
+
 .dia-container {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr 5fr;
+  grid-template-columns: 1fr 4fr 1fr 4fr 1fr;
   align-items: center;
   justify-items: center;
 }

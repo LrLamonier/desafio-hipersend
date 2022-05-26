@@ -2,6 +2,7 @@ import "../css/Dia.css";
 import Typography from "@mui/material/Typography";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { TextField } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 
 function Dia(props) {
   return (
@@ -25,6 +26,9 @@ function Dia(props) {
         inputFormat="hh:mm"
         mask="__:__"
       />
+      <IconButton variant="outlined" type="button" onClick={props.reset}>
+        X
+      </IconButton>
     </div>
   );
 }

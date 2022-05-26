@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./css/Formulario.css";
 import Dia from "./componentes/Dia";
 import Typography from "@mui/material/Typography";
@@ -6,11 +6,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { TextField } from "@mui/material";
+import Button from "@mui/material/Button";
 
 function Formulario() {
-  const [ativo, setAtivo] = useState(true);
+  const [ativo, setAtivo] = useState(false);
   const [envio, setEnvio] = useState("Enviar no próximo expediente");
 
   // Estados dos dias da semana
@@ -85,12 +84,20 @@ function Formulario() {
     setFimDom(h);
     console.log(fimDom);
   };
+  const resetDom = () => {
+    setInicioDom(null);
+    setFimDom(null);
+  };
 
   const handleIniSeg = (h) => {
     setInicioSeg(h);
   };
   const handleFimSeg = (h) => {
     setFimSeg(h);
+  };
+  const resetSeg = () => {
+    setInicioSeg(null);
+    setFimSeg(null);
   };
 
   const handleIniTer = (h) => {
@@ -99,12 +106,20 @@ function Formulario() {
   const handleFimTer = (h) => {
     setFimTer(h);
   };
+  const resetTer = () => {
+    setInicioTer(null);
+    setFimTer(null);
+  };
 
   const handleIniQua = (h) => {
     setInicioQua(h);
   };
   const handleFimQua = (h) => {
     setFimQua(h);
+  };
+  const resetQua = () => {
+    setInicioQua(null);
+    setFimQua(null);
   };
 
   const handleIniQui = (h) => {
@@ -113,12 +128,20 @@ function Formulario() {
   const handleFimQui = (h) => {
     setFimQui(h);
   };
+  const resetQui = () => {
+    setInicioQui(null);
+    setFimQui(null);
+  };
 
   const handleIniSex = (h) => {
     setInicioSex(h);
   };
   const handleFimSex = (h) => {
     setFimSex(h);
+  };
+  const resetSex = () => {
+    setInicioSex(null);
+    setFimSex(null);
   };
 
   const handleIniSab = (h) => {
@@ -127,9 +150,58 @@ function Formulario() {
   const handleFimSab = (h) => {
     setFimSab(h);
   };
+  const resetSab = () => {
+    setInicioSab(null);
+    setFimSab(null);
+  };
+
+  // Função de submissão do formulário
+  const submissaoHandler = (e) => {
+    e.preventDefault();
+    const jornada = {
+      jornadaAtiva: ativo,
+      config: envio,
+      dom: {
+        atv: domAtv,
+        inicio: inicioDom,
+        fim: fimDom,
+      },
+      seg: {
+        atv: segAtv,
+        inicio: inicioSeg,
+        fim: fimSeg,
+      },
+      ter: {
+        atv: terAtv,
+        inicio: inicioTer,
+        fim: fimTer,
+      },
+      qua: {
+        atv: quaAtv,
+        inicio: inicioQua,
+        fim: fimQua,
+      },
+      qui: {
+        atv: quiAtv,
+        inicio: inicioQui,
+        fim: fimQui,
+      },
+      sex: {
+        atv: sexAtv,
+        inicio: inicioSex,
+        fim: fimSex,
+      },
+      sab: {
+        atv: sabAtv,
+        inicio: inicioSab,
+        fim: fimSab,
+      },
+    };
+    console.log(jornada);
+  };
 
   return (
-    <form className="form-container">
+    <form className="form-container" onSubmit={submissaoHandler}>
       <div>
         <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
           Configuração jornada de trabalho
@@ -156,56 +228,147 @@ function Formulario() {
           <MenuItem value={"Abortar"}>Abortar</MenuItem>
         </Select>
       </div>
+      <div className="botoes-container">
+        <button
+          type="button"
+          className={`btn-dia ${domAtv ? "ativo" : ""}`}
+          onClick={toggleDom}
+        >
+          D
+        </button>
+        <button
+          type="button"
+          className={`btn-dia ${segAtv ? "ativo" : ""}`}
+          onClick={toggleSeg}
+        >
+          S
+        </button>
+        <button
+          type="button"
+          className={`btn-dia ${terAtv ? "ativo" : ""}`}
+          onClick={toggleTer}
+        >
+          T
+        </button>
+        <button
+          type="button"
+          className={`btn-dia ${quaAtv ? "ativo" : ""}`}
+          onClick={toggleQua}
+        >
+          Q
+        </button>
+        <button
+          type="button"
+          className={`btn-dia ${quiAtv ? "ativo" : ""}`}
+          onClick={toggleQui}
+        >
+          Q
+        </button>
+        <button
+          type="button"
+          className={`btn-dia ${sexAtv ? "ativo" : ""}`}
+          onClick={toggleSex}
+        >
+          S
+        </button>
+        <button
+          type="button"
+          className={`btn-dia ${sabAtv ? "ativo" : ""}`}
+          onClick={toggleSab}
+        >
+          S
+        </button>
+      </div>
       <div className="semana-container">
-        <Dia
-          dia="Dom"
-          handleIni={handleIniDom}
-          fimMin={inicioDom}
-          fim={fimDom}
-          handleFim={handleFimDom}
-        />
-        <Dia
-          dia="Seg"
-          handleIni={handleIniSeg}
-          fimMin={inicioSeg}
-          fim={fimSeg}
-          handleFim={handleFimSeg}
-        />
-        <Dia
-          dia="Ter"
-          handleIni={handleIniTer}
-          fimMin={inicioTer}
-          fim={fimTer}
-          handleFim={handleFimTer}
-        />
-        <Dia
-          dia="Qua"
-          handleIni={handleIniQua}
-          fimMin={inicioQua}
-          fim={fimQua}
-          handleFim={handleFimQua}
-        />
-        <Dia
-          dia="Qui"
-          handleIni={handleIniQui}
-          fimMin={inicioQui}
-          fim={fimQui}
-          handleFim={handleFimQui}
-        />
-        <Dia
-          dia="Sex"
-          handleIni={handleIniSex}
-          fimMin={inicioSex}
-          fim={fimSex}
-          handleFim={handleFimSex}
-        />
-        <Dia
-          dia="Sab"
-          handleIni={handleIniSab}
-          fimMin={inicioSab}
-          fim={fimSab}
-          handleFim={handleFimSab}
-        />
+        {domAtv ? (
+          <Dia
+            dia="Dom"
+            handleIni={handleIniDom}
+            fimMin={inicioDom}
+            fim={fimDom}
+            handleFim={handleFimDom}
+            reset={resetDom}
+          />
+        ) : (
+          ""
+        )}
+        {segAtv ? (
+          <Dia
+            dia="Seg"
+            handleIni={handleIniSeg}
+            fimMin={inicioSeg}
+            fim={fimSeg}
+            handleFim={handleFimSeg}
+            reset={resetSeg}
+          />
+        ) : (
+          ""
+        )}
+        {terAtv ? (
+          <Dia
+            dia="Ter"
+            handleIni={handleIniTer}
+            fimMin={inicioTer}
+            fim={fimTer}
+            handleFim={handleFimTer}
+            reset={resetTer}
+          />
+        ) : (
+          ""
+        )}
+        {quaAtv ? (
+          <Dia
+            dia="Qua"
+            handleIni={handleIniQua}
+            fimMin={inicioQua}
+            fim={fimQua}
+            handleFim={handleFimQua}
+            reset={resetQua}
+          />
+        ) : (
+          ""
+        )}
+        {quiAtv ? (
+          <Dia
+            dia="Qui"
+            handleIni={handleIniQui}
+            fimMin={inicioQui}
+            fim={fimQui}
+            handleFim={handleFimQui}
+            reset={resetQui}
+          />
+        ) : (
+          ""
+        )}
+        {sexAtv ? (
+          <Dia
+            dia="Sex"
+            handleIni={handleIniSex}
+            fimMin={inicioSex}
+            fim={fimSex}
+            handleFim={handleFimSex}
+            reset={resetSex}
+          />
+        ) : (
+          ""
+        )}
+        {sabAtv ? (
+          <Dia
+            dia="Sab"
+            handleIni={handleIniSab}
+            fimMin={inicioSab}
+            fim={fimSab}
+            handleFim={handleFimSab}
+            reset={resetSab}
+          />
+        ) : (
+          ""
+        )}
+      </div>
+      <div className="submit-container">
+        <Button variant="contained" size="large" type="submit">
+          SALVAR
+        </Button>
       </div>
     </form>
   );

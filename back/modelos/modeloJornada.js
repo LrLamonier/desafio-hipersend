@@ -9,67 +9,81 @@ const schemaJornada = new mongoose.Schema({
     enum: ["Abortar", "Enviar no próximo expediente"],
   },
   dom: {
-    type: Boolean,
-  },
-  domHI: {
-    type: String,
-  },
-  domHF: {
-    type: String,
+    atv: {
+      type: Boolean,
+    },
+    inicio: {
+      type: Date,
+    },
+    fim: {
+      type: Date,
+    },
   },
   seg: {
-    type: Boolean,
-  },
-  segHI: {
-    type: String,
-  },
-  segHF: {
-    type: String,
+    atv: {
+      type: Boolean,
+    },
+    inicio: {
+      type: Date,
+    },
+    fim: {
+      type: Date,
+    },
   },
   ter: {
-    type: Boolean,
-  },
-  terHI: {
-    type: String,
-  },
-  terHF: {
-    type: String,
+    atv: {
+      type: Boolean,
+    },
+    inicio: {
+      type: Date,
+    },
+    fim: {
+      type: Date,
+    },
   },
   qua: {
-    type: Boolean,
-  },
-  quaHI: {
-    type: String,
-  },
-  quaHF: {
-    type: String,
+    atv: {
+      type: Boolean,
+    },
+    inicio: {
+      type: Date,
+    },
+    fim: {
+      type: Date,
+    },
   },
   qui: {
-    type: Boolean,
-  },
-  quiHI: {
-    type: String,
-  },
-  quiHF: {
-    type: String,
+    atv: {
+      type: Boolean,
+    },
+    inicio: {
+      type: Date,
+    },
+    fim: {
+      type: Date,
+    },
   },
   sex: {
-    type: Boolean,
-  },
-  sexHI: {
-    type: String,
-  },
-  sexHF: {
-    type: String,
+    atv: {
+      type: Boolean,
+    },
+    inicio: {
+      type: Date,
+    },
+    fim: {
+      type: Date,
+    },
   },
   sab: {
-    type: Boolean,
-  },
-  sabHI: {
-    type: String,
-  },
-  sabHF: {
-    type: String,
+    atv: {
+      type: Boolean,
+    },
+    inicio: {
+      type: Date,
+    },
+    fim: {
+      type: Date,
+    },
   },
 });
 
