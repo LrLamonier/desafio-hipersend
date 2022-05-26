@@ -4,6 +4,6 @@ const controladorJornada = require("../controladores/controladorJornada");
 const router = express.Router();
 
 router.get("/", controladorJornada.pegar);
-router.put("/", controlador.alterar);
+router.put("/", controladorJornada.alterar);
 
 module.exports = router;
